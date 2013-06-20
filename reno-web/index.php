@@ -5,7 +5,7 @@ include_once("$g4[path]/lib/latest.lib.php");
 $g4['title'] = "";
 include_once("./_head.php");
 ?>
-zzzzzzzzzzzzzz
+
 <!-- 메인화면 최신글 시작 -->
 <table width="100%" cellpadding=0 cellspacing=0><tr><td valign=top>
 <?

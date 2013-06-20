@@ -52,7 +52,7 @@ $result = sql_query($sql);
 
 $listall = "<a href='$_SERVER[PHP_SELF]'>처음</a>";
 
-$g4[title] = "게시판그룹설정";
+$g4[title] = "메인 메뉴 관리";
 include_once("./admin.head.php");
 
 $colspan = 8;
@@ -61,6 +61,13 @@ $colspan = 8;
 <script type="text/javascript">
 var list_update_php = "./boardgroup_list_update.php";
 </script>
+
+
+<div id="breadcrumb">
+	<a href="<?=$g4['admin_path']?>/" title="Go to Admin" class="tip-top"><i class="icon-home"></i> Admin</a>
+	<a href="<?=$g4['admin_path']?>/" class="current"><?=$g4[title]?></a>
+</div>
+
 <div class="container-fluid">
 <form name=fsearch method=get class="row-fluid">
     <div class="span6" align=left>메뉴 수 : <?=number_format($total_count)?>개</div>
@@ -84,7 +91,7 @@ var list_update_php = "./boardgroup_list_update.php";
 								<span class="icon">
 									<i class="icon-th"></i>
 								</span>
-								<h5>메인 메뉴 관리</h5>
+								<h5><?=$g4[title]?></h5>
 							</div>
 							<div class="widget-content">
 								<table class="table table-bordered table-striped table-hover with-check">

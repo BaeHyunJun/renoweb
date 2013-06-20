@@ -62,7 +62,7 @@ $result = sql_query($sql);
 
 $listall = "<a href='$_SERVER[PHP_SELF]'>처음</a>";
 
-$g4[title] = "게시판관리";
+$g4[title] = "서브 메뉴 관리";
 include_once("./admin.head.php");
 
 $colspan = 6;
@@ -72,6 +72,11 @@ $colspan = 6;
 var list_update_php = 'board_list_update.php';
 var list_delete_php = 'board_list_delete.php';
 </script>
+
+<div id="breadcrumb">
+	<a href="<?=$g4['admin_path']?>/" title="Go to Admin" class="tip-top"><i class="icon-home"></i> Admin</a>
+	<a href="<?=$g4['admin_path']?>/" class="current"><?=$g4[title]?></a>
+</div>
 
 
 <div class="container-fluid">
@@ -98,7 +103,7 @@ var list_delete_php = 'board_list_delete.php';
 								<span class="icon">
 									<i class="icon-th"></i>
 								</span>
-								<h5>서브 메뉴 관리</h5>
+								<h5><?=$g4[title]?></h5>
 							</div>
 							<div class="widget-content">
 								<table class="table table-bordered table-striped table-hover with-check">
@@ -147,7 +152,6 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 				<i class='icon-remove'></i>
 			</span></a>";
     }
-    $s_copy = "<a href=\"javascript:board_copy('$row[bo_table]');\"><img src='img/icon_copy.gif' border=0 title='복사'></a>";
 
     $list = $i % 2;
     echo "<input type=hidden name=board_table[$i] value='$row[bo_table]'>";

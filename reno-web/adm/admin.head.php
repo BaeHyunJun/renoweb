@@ -268,7 +268,3 @@ function layer_view(link_id, menu_id, opt, x, y)
 			<div id="content-header">
 				<h1>관리자 페이지</h1>
 			</div>
-			<div id="breadcrumb">
-				<a href="<?=$g4['admin_path']?>/" title="Go to Admin" class="tip-top"><i class="icon-home"></i> Admin</a>
-				<a href="<?=$g4['admin_path']?>/" class="current">관리자 메인</a>
-			</div>
