@@ -124,5 +124,5 @@ else if ($w == "u")
 else
     alert("제대로 된 값이 넘어오지 않았습니다.");
 
-goto_url("./member_form.php?$qstr&w=u&mb_id=$mb_id", false);
+goto_url("./member_list.php", false);
 ?>

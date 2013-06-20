@@ -28,6 +28,16 @@ include_once("./admin.head.php");
 <input type=hidden name=w     value='<?=$w?>'>
 <input type=hidden name=ma_id value='<?=$ma[ma_id]?>'>
 <input type=hidden name=token value='<?=$token?>'>
+
+
+
+
+
+
+
+
+
+
 <table cellpadding=0 cellspacing=0 width=100%>
 <colgroup width=20% class='col1 pad1 bold right'>
 <colgroup width=80% class='col2 pad2'>

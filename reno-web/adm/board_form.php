@@ -16,7 +16,7 @@ $row = sql_fetch($sql);
 if (!$row[cnt])
     alert("게시판그룹이 한개 이상 생성되어야 합니다.", "./boardgroup_form.php");
 
-$html_title = "게시판";
+$html_title = "서브 메뉴";
 if ($w == "") {
     $html_title .= " 생성";
 
@@ -70,6 +70,11 @@ include_once ("./admin.head.php");
 <script src="<?=$g4[cheditor4_path]?>/cheditor.js"></script>
 <?=cheditor1('bo_content_head', '100%', '200');?>
 <?=cheditor1('bo_content_tail', '100%', '200');?>
+
+<div id="breadcrumb">
+	<a href="<?=$g4['admin_path']?>/" title="Go to Admin" class="tip-top"><i class="icon-home"></i> Admin</a>
+	<a href="<?=$g4['admin_path']?>/" class="current"><?=$g4[title]?></a>
+</div>
 
 <div class="container-fluid">
 <form name=fboardform method=post onsubmit="return fboardform_submit(this)" enctype="multipart/form-data">
@@ -150,7 +155,7 @@ include_once ("./admin.head.php");
 					<span class="icon">
 						<i class="icon-align-justify"></i>									
 					</span>
-					<h5>서브 메뉴</h5>
+					<h5><?=$g4[title]?></h5>
 				</div>
 				<div class="widget-content">
 					<div class="row-fluid">

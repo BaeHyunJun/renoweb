@@ -8,7 +8,7 @@ $token = get_token();
 
 if ($is_admin != "super" && $w == "") alert("최고관리자만 접근 가능합니다.");
 
-$html_title = "게시판그룹";
+$html_title = "메인 메뉴";
 if ($w == "") 
 {
     $gr_id_attr = "required";
@@ -27,6 +27,12 @@ else
 $g4[title] = $html_title;
 include_once("./admin.head.php");
 ?>
+
+
+<div id="breadcrumb">
+	<a href="<?=$g4['admin_path']?>/" title="Go to Admin" class="tip-top"><i class="icon-home"></i> Admin</a>
+	<a href="<?=$g4['admin_path']?>/" class="current"><?=$g4[title]?></a>
+</div>
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="span12">
@@ -35,7 +41,7 @@ include_once("./admin.head.php");
 								<span class="icon">
 									<i class="icon-align-justify"></i>									
 								</span>
-								<h5>메인 메뉴</h5>
+								<h5><?=$g4[title]?></h5>
 							</div>
 							<div class="widget-content nopadding">
 								<form class="form-horizontal" name=fboardgroup method=post onsubmit="return fboardgroup_check(this);" autocomplete="off">
@@ -104,7 +110,6 @@ include_once("./admin.head.php");
 					</div>
 				</div>
 			</div>
-</form>
 
 <script type='text/javascript'>
 if (document.fboardgroup.w.value == '')
