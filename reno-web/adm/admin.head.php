@@ -230,7 +230,7 @@ function layer_view(link_id, menu_id, opt, x, y)
 			<ul>
 				<li id="admin_main" class="submenu">
 					<a href="<?=$g4['admin_path']?>/">
-						<i class="icon icon-cog"></i> 
+						<i class="icon icon-book"></i> 
 						<span>관리자 메인</span>
 					</a>
 				</li>
@@ -252,6 +252,7 @@ function layer_view(link_id, menu_id, opt, x, y)
 			}
             echo "
 					{$href1}
+						<i class='".$menu["menu{$key}"][0][4]."'></i> 
 						<span>".$menu["menu{$key}"][0][1]."</span>
 					{$href2}
 				";
