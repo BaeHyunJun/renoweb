@@ -20,3 +20,7 @@ include_once ("./admin.head.php");
 
 <iframe src="http://analytics.naver.com/summary/dashboard.html" width=100%; height=100%>
 </iframe>
+
+<?
+include_once ("./admin.tail.php");
+?>
