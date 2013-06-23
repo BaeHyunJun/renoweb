@@ -116,7 +116,7 @@ include_once ("./admin.head.php");
 <input type='hidden' name='cf_email_po_super_admin' value='0'>												<!-- 최고 관리자에게 메일 발송 -->
 
 
-<? for ($i=1; $i<=10; $i++) { ?>
+<? for ($i=5; $i<=10; $i++) { ?>
 	<input type='hidden' name='cf_<?=$i?>_subj' value='<?=get_text($config["cf_{$i}_subj"])?>'>
 	<input type='hidden' name='cf_<?=$i?>' value='<?=$config["cf_$i"]?>'>
 <? } ?>
@@ -136,6 +136,38 @@ include_once ("./admin.head.php");
 									<label class="control-label">최고 관리자</label>
 									<div class="controls">
 										<?=get_member_id_select("cf_admin", 10, $config[cf_admin], "required itemname='최고 관리자'")?>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row-fluid">
+							<div class="span6">
+								<div class="control-group">
+									<label class="control-label">로고</label>
+									<div class="controls">
+								        <input type=file name='cf_logo' class=ed><br />이미지 크기는 <?=$config[cf_2]?>x<?=$config[cf_3]?>으로 해주세요.
+								        <?
+										$logo_path = "$g4[path]/data/logo/logo";
+								        if (file_exists($logo_path)) {
+								            echo "<br><img src='$logo_file' align=absmiddle>";
+								            echo " <input type=checkbox name='del_mb_icon' value='1' class='csscheck'>삭제";
+								        }   
+								        ?>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">로고 용량</label>
+									<div class="controls">
+        								<input type=text class=ed name='cf_2' size='5' value='<?=$config[cf_1]?>'> 바이트 이하
+									</div>
+								</div>
+							</div>
+							<div class="span6">
+								<div class="control-group">
+									<label class="control-label">로고 사이즈</label>
+									<div class="controls">
+										폭 <input type=text class=ed name='cf_3' size='5' value='<?=$config[cf_2]?>'> 픽셀 <br /> 
+										높이 <input type=text class=ed name='cf_4' size='5' value='<?=$config[cf_3]?>'> 픽셀
 									</div>
 								</div>
 							</div>

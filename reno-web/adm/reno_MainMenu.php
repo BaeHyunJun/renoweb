@@ -160,6 +160,9 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
     echo "<td>$s_upd / $s_del</td>";
     echo "</tr>\n";
 }
+
+if ($i == 0)
+    echo "<tr><td colspan='6' align=center height=100 bgcolor=#ffffff>자료가 없습니다.</td></tr>"; 
 ?>
 									</tbody>
 								</table>
