@@ -42,6 +42,10 @@ header("Cache-Control: no-cache"); // HTTP/1.1
 header("Expires: 0"); // rfc2616 - Section 14.21
 header("Pragma: no-cache"); // HTTP/1.0
 */
+
+// 메인 메뉴 가져오기
+$sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' order by gr_2 asc";
+$main = sql_query($sql); 
 ?>
 <!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> -->
 <html>

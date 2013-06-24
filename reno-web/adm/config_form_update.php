@@ -1,5 +1,5 @@
 <?
-$sub_menu = "600100";
+$sub_menu = "700100";
 include_once("./_common.php");
 
 check_demo();
@@ -117,28 +117,26 @@ $sql = " update $g4[config_table]
                 cf_10                   = '$_POST[cf_10]' ";
 
 // 로고 삭제
-if ($del_cf_1)
-	@unlink("$g4[path]/data/logo/{$_FILES[cf_1][name]}");
-
+if ($del_cf_logo){
+	@unlink($logo_path);
+}
 // 로고 업로드
-if (is_uploaded_file($_FILES[cf_1][tmp_name])) {
-	if (!preg_match("/(\.gif|jpg|png|bmp)$/i", $_FILES[cf_1][name])) {
-		alert($_FILES[cf_1][name] . '은(는) 이미지 파일이 아닙니다.');
+if (is_uploaded_file($_FILES[cf_logo][tmp_name])) {
+	if (!preg_match("/(\.png)$/i", $_FILES[cf_logo][name])) {
+		alert($_FILES[cf_logo][name] . '은(는) png 파일이 아닙니다. 로고는 png파일로 등록해 주세요.');
 	}
 
-	if (preg_match("/(\.gif|jpg|png|bmp)$/i", $_FILES[cf_1][name])) {
+	if (preg_match("/(\.png)$/i", $_FILES[cf_logo][name])) {
 		@mkdir("$g4[path]/data/logo", 0707);
 		@chmod("$g4[path]/data/logo", 0707);
 
-		$logo_path = "$g4[path]/data/logo/{$_FILES[cf_1][name]}";
-
-		move_uploaded_file($_FILES[cf_1][tmp_name], $logo_path);
+		move_uploaded_file($_FILES[cf_logo][tmp_name], $logo_path);
 		chmod($logo_path, 0606);
 
 		if (file_exists($logo_path)) {
 			$size = getimagesize($logo_path);
 			// 아이콘의 폭 또는 높이가 설정값 보다 크다면 이미 업로드 된 아이콘 삭제
-			if ($size[0] > $config[cf_3] || $size[1] > $config[cf_4]) {
+			if ($size[0] > $config[cf_2] || $size[1] > $config[cf_3]) {
 				@unlink($dest_path);
 			}
 		}

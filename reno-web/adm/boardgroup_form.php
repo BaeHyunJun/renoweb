@@ -81,19 +81,6 @@ include_once("./admin.head.php");
 								        ?>
 										</div>
 									</div>
-									<div class="control-group">
-										<label class="control-label" style="height:30px;">메인 메뉴</label>
-										<div class="controls">
-											<input type="checkbox" name="gr_1"
-											<?
-												if($gr[gr_1] == 'on'){
-													echo "checked";
-												} 
-											?> 
-											/>
-											<?=help("사용에 체크하시면 해당 메뉴가 메인 메뉴로 등록됩니다.")?>
-										</div>
-									</div>
 									<div class="form-actions" style="text-align: center">
 										<button type="submit" class="btn btn-primary">확인</button>
 										<button type="button" class="btn btn1" onclick="document.location.href='./reno_MainMenu.php?<?=$qstr?>';">목록</button>

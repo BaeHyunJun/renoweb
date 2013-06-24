@@ -1,8 +1,10 @@
 <?
 $menu["menu600"] = array (
-    array("600000", "환경 설정", "", "admin_set", "icon icon-cog"),
-    array("600100", "기본환경설정", "$g4[admin_path]/config_form.php", "", ""),
-//    array("600200", "관리권한설정", "$g4[admin_path]/auth_list.php", "", ""),
-    array("600300", "버전정보", "$g4[admin_path]/version.php", "", ""),
+    array("600000", "홈페이지 분석", "", "admin_home", "icon icon-globe"),
+    array("600100", "Naver Analytics", "$g4[admin_path]/homepage_analytics.php", "", ""),
+//     array("", "방문 분석", "", "", ""),
+//     array("", "유입 분석", "", "", ""),
+//     array("", "페이 분석", "", "", ""),
+//     array("", "환경 설정", "", "", ""),
 );
 ?>

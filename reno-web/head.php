@@ -14,7 +14,10 @@ include_once("$g4[path]/lib/popular.lib.php");
 // 상단, 좌측 화면을 꾸미려면 이 파일을 수정합니다.
 
 $table_width = 1004;
+include_once("$main_skin_path/head.php");
 ?>
+
+
 
 <!-- 상단 배경 시작 -->
 <table width="<?=$table_width?>" cellspacing="0" cellpadding="0">

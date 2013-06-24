@@ -520,7 +520,11 @@ if ($is_admin != "super") {
 // 스킨경로
 $board_skin_path = '';
 if (isset($board['bo_skin']))
-    $board_skin_path = "{$g4['path']}/skin/board/{$board['bo_skin']}"; // 게시판 스킨 경로
+	$board_skin_path = "{$g4['path']}/skin/board/{$board['bo_skin']}"; // 게시판 스킨 경로
+
+$main_skin_path = '';
+if (isset($config['cf_4']))
+    $main_skin_path = "{$g4['path']}/skin/main/{$config['cf_4']}"; // 메인 스킨 경로
 
 // 방문자수의 접속을 남김
 include_once("{$g4['bbs_path']}/visit_insert.inc.php");
@@ -533,4 +537,8 @@ while ($entry = $tmp->read()) {
     if (preg_match("/(\.php)$/i", $entry))
         include_once("$g4[path]/extend/$entry");
 }
+
+// 음...?
+
+$logo_path = "$g4[path]/data/logo/logo.png";
 ?>
