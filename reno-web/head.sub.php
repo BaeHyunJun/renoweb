@@ -45,13 +45,25 @@ header("Pragma: no-cache"); // HTTP/1.0
 
 // 메인 메뉴 가져오기
 $sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' order by gr_2 asc";
-$main = sql_query($sql); 
+$main = sql_query($sql);
+
+// 유저 메뉴 가져오기
+$sql = "select * from $g4[group_table] where gr_1 = '유저 메뉴' order by gr_2 asc";
+$user = sql_query($sql);
+
+function isLoginMenu($data) {
+	if($data) {
+		return true;
+	}
+	return false;
+}
 ?>
 <!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> -->
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=<?=$g4['charset']?>">
 <title><?=$g4['title']?></title>
+<link rel="stylesheet" href="<?=$g4['path']?>/css/EricMeyer-reset.css" />
 </head>
 <script type="text/javascript">
 // 자바스크립트에서 사용하는 전역변수 선언

@@ -188,7 +188,6 @@ function layer_view(link_id, menu_id, opt, x, y)
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet" href="<?=$g4['path']?>/css/EricMeyer-reset.css" />
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/bootstrap.min.css" />
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/uniform.css" />

@@ -17,6 +17,7 @@ $table_width = 1004;
 include_once("$main_skin_path/head.php");
 ?>
 
+<div style="height: 200px"></div>
 
 
 <!-- 상단 배경 시작 -->

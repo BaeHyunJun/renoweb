@@ -1,0 +1,80 @@
+/* 공통 */
+a {
+	text-decoration:none;
+}
+#wrap {
+	width: 1000px;
+	height: 1000px;
+	padding: 0 100px;
+}
+
+/* 헤더 */
+#main_header {
+	position: relative;
+	height: 84px;
+}
+#title {
+	position: absolute;
+	top: 13px;
+	width: 100%;
+}
+#main_unb {
+	position: absolute;
+	top: 22px;
+	right: 10px;
+	font-weight:bold;
+	font-size: 9pt;
+}
+#main_unb li{
+	display: inline;
+}
+#main_unb li a,
+#main_unb li a:link, 
+#main_unb li a:hover, 
+#main_unb li a:visited,
+#main_unb li a:active{
+	color: gray;
+}
+#main_mnb {
+	position: absolute;
+	top: 62px;
+	font-weight:bold;
+	font-size: 9pt;
+}
+#main_mnb li {
+	display: inline;
+}
+#main_mnb li a,
+#main_mnb li a:link, 
+#main_mnb li a:hover, 
+#main_mnb li a:visited,
+#main_mnb li a:active{
+	margin: 0 9px;
+	padding: 10px 14px;
+	color: white;
+}
+
+/* 푸터 */
+#main_footer {
+	padding-top: 17px;
+	text-align: center;
+}
+#main_fnb {
+	font-size: 9pt;
+}
+#main_fnb li {
+	display: inline;
+}
+#main_fnb li a,
+#main_fnb li a:link, 
+#main_fnb li a:hover, 
+#main_fnb li a:visited,
+#main_fnb li a:active{
+	color: gray;
+}
+figure {
+	padding-top: 8px;
+	font-size: 9pt;
+	line-height: 19px;
+	color: gray;
+}
