@@ -43,9 +43,13 @@ header("Expires: 0"); // rfc2616 - Section 14.21
 header("Pragma: no-cache"); // HTTP/1.0
 */
 
-// 메인 메뉴 가져오기
-$sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' order by gr_2 asc";
-$main = sql_query($sql);
+// 블로그 메뉴 가져오기
+$sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' and gr_3 = 'blog' order by gr_2 asc";
+$blogmenu = sql_query($sql);
+
+// 홈페이지 메뉴 가져오기
+$sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' and gr_3 = 'homepage' order by gr_2 asc";
+$homepagemenu = sql_query($sql);
 
 // 유저 메뉴 가져오기
 $sql = "select * from $g4[group_table] where gr_1 = '유저 메뉴' order by gr_2 asc";
@@ -81,7 +85,7 @@ var g4_is_gecko  = navigator.userAgent.toLowerCase().indexOf("gecko") != -1;
 var g4_is_ie     = navigator.userAgent.toLowerCase().indexOf("msie") != -1;
 <? if ($is_admin) { echo "var g4_admin = '{$g4['admin']}';"; } ?>
 </script>
-<script type="text/javascript" src="<?=$g4['path']?>/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<?=$g4['path']?>/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="<?=$g4['path']?>/js/common.js"></script>
 <body topmargin="0" leftmargin="0" <?=isset($g4['body_script']) ? $g4['body_script'] : "";?>>
 <a name="g4_head"></a>

@@ -3,78 +3,428 @@ a {
 	text-decoration:none;
 }
 #wrap {
-	width: 1000px;
-	height: 1000px;
-	padding: 0 100px;
-}
-
-/* 헤더 */
-#main_header {
-	position: relative;
-	height: 84px;
-}
-#title {
-	position: absolute;
-	top: 13px;
 	width: 100%;
-}
-#main_unb {
-	position: absolute;
-	top: 22px;
-	right: 10px;
-	font-weight:bold;
-	font-size: 9pt;
-}
-#main_unb li{
-	display: inline;
-}
-#main_unb li a,
-#main_unb li a:link, 
-#main_unb li a:hover, 
-#main_unb li a:visited,
-#main_unb li a:active{
-	color: gray;
-}
-#main_mnb {
-	position: absolute;
-	top: 62px;
-	font-weight:bold;
-	font-size: 9pt;
-}
-#main_mnb li {
-	display: inline;
-}
-#main_mnb li a,
-#main_mnb li a:link, 
-#main_mnb li a:hover, 
-#main_mnb li a:visited,
-#main_mnb li a:active{
-	margin: 0 9px;
-	padding: 10px 14px;
-	color: white;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
-/* 푸터 */
-#main_footer {
-	padding-top: 17px;
-	text-align: center;
+@media screen and (max-width: 510px){
+/********** 스킨 **********/
+	#skin {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+	/* 헤더 */
+	#left_bar {
+		position: relative;
+		width: 100%;
+		height: 35px;	
+		background: url(../img/navbar_bgblue.jpg);
+	}
+	#left_bar a {
+		position: absolute;
+		top: 2px;
+		left: 33%;
+		width: 170px;
+		height: 35px;
+		text-indent: -10000px;
+		background: url(../img/logo_white.png) no-repeat;
+	}
+	#left_bar_end {
+		display: none;
+	}
+	#left_bar_repeat {
+		display: none;
+	}
+	#right_bar {
+		position: absolute;
+		width: 100%;
+		top: 219px;
+		height: 35px;
+		background: url(../img/navbar_bgsky.jpg);
+	}
+	#right_bar a {
+		position: absolute;
+		top: 2px;
+		left: 33%;
+		width: 170px;
+		height: 35px;
+		text-indent: -10000px;
+		background: url(../img/logo_white.png) no-repeat;
+	}
+	#right_bar_end {
+		display: none;
+	}
+	#right_bar_repeat {
+		display: none;
+	}
+/********** 스킨 끝 **********/
+/********** 내용 **********/
+	#content {
+		width: 100%;
+		padding: 0;
+		margin: 0 auto;
+		z-index: 2;
+	}
+	#title {
+		display: none;
+	}
+	#main_unb {
+		display: none;
+	}
+	#main_mnb {
+		position: absolute;
+		top: 36px;
+		font-weight:bold;
+		font-size: 9pt;
+		height: 35px;
+		width: 100%;
+	}
+	#main_mnb li {
+		height: 35px;
+		margin: 1px 0;
+	}
+	#main_mnb li a,
+	#main_mnb li a:link, 
+	#main_mnb li a:hover, 
+	#main_mnb li a:visited,
+	#main_mnb li a:active {
+		margin: 0 9px;
+		padding: 10px 14px;
+		line-height: 35px;
+		color: white;
+	}
+	#blog_menu {
+	}
+	#blog_menu li {
+		background: url(../img/navbar_bgblue.jpg);
+	}
+	#homepage_menu {
+		margin-top: 40px;
+	}
+	#homepage_menu li {
+		background: url(../img/navbar_bgsky.jpg);
+	}
+	
+	/* 푸터 */
+	#main_footer {
+		padding-top: 17px;
+		text-align: center;
+	}
+	#main_fnb {
+		font-size: 9pt;
+	}
+	#main_fnb li {
+		display: inline;
+	}
+	#main_fnb li a,
+	#main_fnb li a:link, 
+	#main_fnb li a:hover, 
+	#main_fnb li a:visited,
+	#main_fnb li a:active {
+		color: gray;
+	}
+	figure {
+		padding-top: 8px;
+		font-size: 9pt;
+		line-height: 19px;
+		color: gray;
+	}
+/********** 내용 끝 **********/
 }
-#main_fnb {
-	font-size: 9pt;
+
+@media only screen and (min-width: 511px) and (max-width : 1023px) {
+/********** 스킨 **********/
+	#skin {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	
+	/* 헤더 */
+	#nav_bar {
+		position: relative;
+		top: 50px;
+		min-width: 469px;
+		margin: 0 auto;
+	}
+	#left_bar {
+		position: absolute;
+		width: 504px;
+		height: 35px;
+		background: url(../img/navbar_bgblue.jpg);
+	}
+	#left_bar_end {
+		position: absolute;
+		width: 30px;
+		left: 504px;
+		height: 35px;
+		background: url(../img/navbar_01bg.png) no-repeat;
+	}
+	#left_bar_repeat {
+		display: none;
+	}
+	#right_bar {
+		position: absolute;
+		top: 36px;
+		width: 460px;
+		right: 0;
+		height: 35px;
+		background: url(../img/navbar_bgsky.jpg);
+	}
+	#right_bar_end {
+		position: absolute;
+		top: 36px;
+		width: 30px;
+		right: 455px;
+		height: 35px;
+		background: url(../img/navbar_02bg.png) no-repeat;
+	}
+	#right_bar_repeat {
+		display: none;
+	}
+/********** 스킨 끝 **********/
+/********** 내용 **********/
+	#content {
+		min-width: 469px;
+		height: 1000px;
+		padding: 0;
+		margin: 0 auto;
+	}
+	
+	/* 헤더 */
+	#main_header {
+		position: relative;
+		height: 84px;
+	}
+	#title {
+		position: absolute;
+		top: 13px;
+		width: 200px;
+	}
+	#title h1 {
+		line-height: 35px;
+	}
+	#main_unb {
+		position: absolute;
+		top: 22px;
+		right: 10px;
+		font-weight:bold;
+		font-size: 9pt;
+	}
+	#main_unb li {
+		display: inline;
+	}
+	#main_unb li a,
+	#main_unb li a:link, 
+	#main_unb li a:hover, 
+	#main_unb li a:visited,
+	#main_unb li a:active {
+		color: gray;
+	}
+	#main_mnb {
+		position: absolute;
+		top: 50px;
+		font-weight:bold;
+		font-size: 9pt;
+		height: 35px;
+		width: 100%;
+	}
+	#main_mnb li {
+		display: inline;
+	}
+	#main_mnb li a,
+	#main_mnb li a:link, 
+	#main_mnb li a:hover, 
+	#main_mnb li a:visited,
+	#main_mnb li a:active {
+		margin: 0 9px;
+		padding: 10px 14px;
+		line-height: 35px;
+		color: white;
+	}
+	#blog_menu {
+		width: 530px;
+	}
+	#homepage_menu {
+		position: absolute;
+		right: 0;
+	}
+	
+	/* 푸터 */
+	#main_footer {
+		padding-top: 17px;
+		text-align: center;
+	}
+	#main_fnb {
+		font-size: 9pt;
+	}
+	#main_fnb li {
+		display: inline;
+	}
+	#main_fnb li a,
+	#main_fnb li a:link, 
+	#main_fnb li a:hover, 
+	#main_fnb li a:visited,
+	#main_fnb li a:active {
+		color: gray;
+	}
+	figure {
+		padding-top: 8px;
+		font-size: 9pt;
+		line-height: 19px;
+		color: gray;
+	}
+/********** 내용 끝 **********/
 }
-#main_fnb li {
-	display: inline;
-}
-#main_fnb li a,
-#main_fnb li a:link, 
-#main_fnb li a:hover, 
-#main_fnb li a:visited,
-#main_fnb li a:active{
-	color: gray;
-}
-figure {
-	padding-top: 8px;
-	font-size: 9pt;
-	line-height: 19px;
-	color: gray;
+
+/* 1024 사이즈 */
+@media screen and (min-width: 1024px){
+/********** 스킨 **********/
+	#skin {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	
+	/* 헤더 */
+	#nav_bar {
+		position: relative;
+		top: 50px;
+		width: 1000px;
+		margin: 0 auto;
+	}
+	#left_bar {
+		position: absolute;
+		width: 504px;
+		height: 35px;
+		background: url(../img/navbar_bgblue.jpg);
+	}
+	#left_bar_end {
+		position: absolute;
+		width: 3%;
+		left: 504px;
+		height: 35px;
+		background: url(../img/navbar_01bg.png) no-repeat;
+	}
+	#left_bar_repeat {
+		position: absolute;
+		top: 50px;
+		width: 50%;
+		height: 35px;
+		background: url(../img/navbar_bgblue.jpg);
+	}
+	#right_bar {
+		position: absolute;
+		width: 460px;
+		right: 0;
+		height: 35px;
+		background: url(../img/navbar_bgsky.jpg);
+	}
+	#right_bar_end {
+		position: absolute;
+		width: 3%;
+		right: 455px;
+		height: 35px;
+		background: url(../img/navbar_02bg.png) no-repeat;
+	}
+	#right_bar_repeat {
+		position: absolute;
+		top: 50px;
+		width: 40%;
+		right: 0;
+		height: 35px;
+		background: url(../img/navbar_bgsky.jpg);
+	}
+/********** 스킨 끝 **********/
+
+/********** 내용 **********/
+	#content {
+		width: 1000px;
+		height: 1000px;
+		padding: 0;
+		margin: 0 auto;
+	}
+	
+	/* 헤더 */
+	#main_header {
+		position: relative;
+		height: 84px;
+	}
+	#title {
+		position: absolute;
+		top: 13px;
+		width: 20%;
+	}
+	#title h1 {
+		line-height: 35px;
+	}
+	#main_unb {
+		position: absolute;
+		top: 22px;
+		right: 10px;
+		font-weight:bold;
+		font-size: 9pt;
+	}
+	#blog_menu,
+	#homepage_menu,
+	#main_unb li {
+		display: inline;
+	}
+	#main_unb li a,
+	#main_unb li a:link, 
+	#main_unb li a:hover, 
+	#main_unb li a:visited,
+	#main_unb li a:active {
+		color: gray;
+	}
+	#main_mnb {
+		position: absolute;
+		top: 50px;
+		font-weight:bold;
+		font-size: 9pt;
+		height: 35px;
+	}
+	#main_mnb li {
+		display: inline;
+	}
+	#main_mnb li a,
+	#main_mnb li a:link, 
+	#main_mnb li a:hover, 
+	#main_mnb li a:visited,
+	#main_mnb li a:active {
+		margin: 0 9px;
+		padding: 10px 14px;
+		line-height: 35px;
+		color: white;
+	}
+	
+	/* 푸터 */
+	#main_footer {
+		padding-top: 17px;
+		text-align: center;
+	}
+	#main_fnb {
+		font-size: 9pt;
+	}
+	#main_fnb li {
+		display: inline;
+	}
+	#main_fnb li a,
+	#main_fnb li a:link, 
+	#main_fnb li a:hover, 
+	#main_fnb li a:visited,
+	#main_fnb li a:active {
+		color: gray;
+	}
+	figure {
+		padding-top: 8px;
+		font-size: 9pt;
+		line-height: 19px;
+		color: gray;
+	}
+/********** 내용 끝 **********/
 }
