@@ -116,7 +116,15 @@ include_once ("./admin.head.php");
 <input type='hidden' name='cf_email_po_super_admin' value='0'>												<!-- 최고 관리자에게 메일 발송 -->
 
 
-<? for ($i=4; $i<=10; $i++) { ?>
+<input type='hidden' name='cf_1_subj' value='로고 용량'>														<!-- 여분 필드 -->
+<input type='hidden' name='cf_2_subj' value='로고 width'>													<!-- 여분 필드 -->
+<input type='hidden' name='cf_3_subj' value='로고 height'>													<!-- 여분 필드 -->
+<input type='hidden' name='cf_4_subj' value='로고 경로'>														<!-- 여분 필드 -->
+<input type='hidden' name='cf_5_subj' value='카피라이트'>														<!-- 여분 필드 -->
+<input type='hidden' name='cf_6_subj' value='주소'>															<!-- 여분 필드 -->
+<input type='hidden' name='cf_7_subj' value='기타'>															<!-- 여분 필드 -->
+
+<? for ($i=8; $i<=10; $i++) { ?>
 	<input type='hidden' name='cf_<?=$i?>_subj' value='<?=get_text($config["cf_{$i}_subj"])?>'>
 	<input type='hidden' name='cf_<?=$i?>' value='<?=$config["cf_$i"]?>'>
 <? } ?>
@@ -172,7 +180,29 @@ include_once ("./admin.head.php");
         								<input type=text class=ed name='cf_1' size='5' value='<?=$config[cf_1]?>'> 바이트 이하
 									</div>
 								</div>
+								
+								
+						<div class="control-group">
+							<label class="control-label">카피라이트</label>
+							<div class="controls">
+       							<input type=text class=ed name='cf_5' size='5' value='<?=$config[cf_5]?>'>
+							</div>
+						</div>
 						
+						<div class="control-group">
+							<label class="control-label">주소</label>
+							<div class="controls">
+       							<input type=text class=ed name='cf_6' size='5' value='<?=$config[cf_6]?>'>
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label">기타</label>
+							<div class="controls">
+       							<input type=text class=ed name='cf_7' size='5' value='<?=$config[cf_7]?>'>
+							</div>
+						</div>
+					
 						<div class="control-group">
 							<label class="control-label">회원가입약관</label>
 							<div class="controls">
@@ -198,13 +228,6 @@ include_once ("./admin.head.php");
 			</div>						
 		</div>
 	</div>
-
-	<div class="row-fluid">
-		<div id="footer" class="span12">
-			2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
-		</div>
-	</div>
-</div>
 
 <script type="text/javascript">
 function fconfigform_submit(f)

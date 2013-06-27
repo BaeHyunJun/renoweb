@@ -184,14 +184,6 @@ $pagelist = get_paging($config[cf_write_pages], $page, $total_page, "$_SERVER[PH
 					</div>
 				</div>
 
-				<div class="row-fluid">
-					<div id="footer" class="span12">
-						2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
 <script>
 // POST 방식으로 삭제
 function post_delete(action_url, val)

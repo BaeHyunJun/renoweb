@@ -7,6 +7,7 @@ a {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	height: 1000px;
 }
 
 @media screen and (max-width: 510px){
@@ -19,23 +20,28 @@ a {
 	}
 	/* 헤더 */
 	#left_bar {
-		position: relative;
 		width: 100%;
 		height: 35px;	
 		background: url(../img/navbar_bgblue.jpg);
 	}
-	#left_bar a {
-		position: absolute;
+	#left_bar div {
+		position: relative;
 		top: 2px;
-		left: 33%;
-		width: 170px;
-		height: 35px;
-		text-indent: -10000px;
-		background: url(../img/logo_white.png) no-repeat;
+		text-align: center;
 	}
-	#left_bar_end {
-		display: none;
+	#left_bar img {
 	}
+	#left_bar strong {
+		position: relative;
+		top: -9px;
+		color: white;
+		font-weight: bold;
+	}
+	#left_bar .revitalize {
+		position: relative;
+		top: -9px;
+	}
+	#left_bar_end, 
 	#left_bar_repeat {
 		display: none;
 	}
@@ -46,11 +52,28 @@ a {
 		height: 35px;
 		background: url(../img/navbar_bgsky.jpg);
 	}
+	#right_bar div {
+		position: relative;
+		top: 2px;
+		text-align: center;
+	}
+	#right_bar img {
+	}
+	#right_bar strong {
+		position: relative;
+		top: -9px;
+		color: white;
+		font-weight: bold;
+	}
+	#right_bar .revitalize {
+		position: relative;
+		top: -9px;
+	}
 	#right_bar a {
 		position: absolute;
 		top: 2px;
 		left: 33%;
-		width: 170px;
+		width: 62px;
 		height: 35px;
 		text-indent: -10000px;
 		background: url(../img/logo_white.png) no-repeat;
@@ -61,8 +84,15 @@ a {
 	#right_bar_repeat {
 		display: none;
 	}
+	/* 헤더 */
+	/* 내용 */
+	.skin_cont {
+	}
+	/* 내용 */
+	/* 푸터 */
+	/* 푸터 */
 /********** 스킨 끝 **********/
-/********** 내용 **********/
+/********** 문서 **********/
 	#content {
 		width: 100%;
 		padding: 0;
@@ -78,8 +108,8 @@ a {
 	#main_mnb {
 		position: absolute;
 		top: 36px;
+		text-align: center;
 		font-weight:bold;
-		font-size: 9pt;
 		height: 35px;
 		width: 100%;
 	}
@@ -133,7 +163,7 @@ a {
 		line-height: 19px;
 		color: gray;
 	}
-/********** 내용 끝 **********/
+/********** 문서 끝 **********/
 }
 
 @media only screen and (min-width: 511px) and (max-width : 1023px) {
@@ -157,6 +187,9 @@ a {
 		height: 35px;
 		background: url(../img/navbar_bgblue.jpg);
 	}
+	#left_bar div {
+		display: none;
+	}
 	#left_bar_end {
 		position: absolute;
 		width: 30px;
@@ -175,6 +208,9 @@ a {
 		height: 35px;
 		background: url(../img/navbar_bgsky.jpg);
 	}
+	#right_bar div {
+		display: none;
+	}
 	#right_bar_end {
 		position: absolute;
 		top: 36px;
@@ -187,7 +223,7 @@ a {
 		display: none;
 	}
 /********** 스킨 끝 **********/
-/********** 내용 **********/
+/********** 문서 **********/
 	#content {
 		min-width: 469px;
 		height: 1000px;
@@ -278,7 +314,7 @@ a {
 		line-height: 19px;
 		color: gray;
 	}
-/********** 내용 끝 **********/
+/********** 문서 끝 **********/
 }
 
 /* 1024 사이즈 */
@@ -303,6 +339,9 @@ a {
 		height: 35px;
 		background: url(../img/navbar_bgblue.jpg);
 	}
+	#left_bar div {
+		display: none;
+	}
 	#left_bar_end {
 		position: absolute;
 		width: 3%;
@@ -324,6 +363,9 @@ a {
 		height: 35px;
 		background: url(../img/navbar_bgsky.jpg);
 	}
+	#right_bar div {
+		display: none;
+	}
 	#right_bar_end {
 		position: absolute;
 		width: 3%;
@@ -341,7 +383,7 @@ a {
 	}
 /********** 스킨 끝 **********/
 
-/********** 내용 **********/
+/********** 문서 **********/
 	#content {
 		width: 1000px;
 		height: 1000px;
@@ -426,5 +468,5 @@ a {
 		line-height: 19px;
 		color: gray;
 	}
-/********** 내용 끝 **********/
+/********** 문서 끝 **********/
 }

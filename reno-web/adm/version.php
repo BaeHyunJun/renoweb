@@ -24,6 +24,7 @@ $args = "head -1 ".$g4[path]."/HISTORY";
 system($args); 
 echo "</b>";
 ?>
+<div class="container-fluid">
 <table width=100% border="0" align="left" cellpadding="0" cellspacing="0"> 
 <tr> 
     <td> 

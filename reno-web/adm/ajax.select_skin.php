@@ -1,5 +1,5 @@
 <?
 $dir = $_POST['skin_dir'];
 
-echo "$dir/preview/main.php";
+echo "$dir/img/preview.jpg";
 ?>

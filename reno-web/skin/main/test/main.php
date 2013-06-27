@@ -47,13 +47,3 @@
 		position: relative;
 	}
 </style>
-<div class='asdf'>
-	<div class='zzzz'>
-		<div class="header">
-			<div class="Logo">
-			</div>
-			<div class="UserWidget">
-			</div
-		</div>
-	</div>
-</div>

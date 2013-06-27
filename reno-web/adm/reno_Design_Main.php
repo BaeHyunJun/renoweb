@@ -47,7 +47,7 @@ include_once("./admin.head.php");
 												<table>
 													<tr><td>
 														<input type='hidden' name='path$i' value='$path'>
-														<img src='$path/main.jpg' width='200' height='200'>
+														<img src='$path/preview.jpg' width='200' height='200'>
 													</td></tr>
 													<tr><td align='center'>
 														<input type='radio' name='cf_4' value='$arr[$i]' onclick='select_skin($i);'>
@@ -89,13 +89,6 @@ include_once("./admin.head.php");
 			</div>						
 		</div>
 	</div>
-
-	<div class="row-fluid">
-		<div id="footer" class="span12">
-			2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
-		</div>
-	</div>
-</div>
 <script>
 function select_skin(num){
 	skin_dir = document.getElementsByName('path'+num)[0].value;

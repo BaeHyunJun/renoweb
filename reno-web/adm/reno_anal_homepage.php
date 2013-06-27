@@ -18,6 +18,8 @@ include_once ("./admin.head.php");
 	<a href="<?=$g4['admin_path']?>/" class="current"><?=$g4[title]?></a>
 </div>
 
+<div class="container-fluid">
+
 <iframe src="http://analytics.naver.com/summary/dashboard.html" width=100%; height=100%>
 </iframe>
 
