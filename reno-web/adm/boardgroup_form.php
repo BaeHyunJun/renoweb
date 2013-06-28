@@ -65,7 +65,7 @@ include_once("./admin.head.php");
 											<input type="text" style="height:30px;" class=ed name=gr_subject size=40 required itemname='그룹 제목' value='<?=get_text($group[gr_subject])?>' />
 									        <? 
 									        if ($w == 'u')
-									            echo "<input type=button class='btn1' value='게시판생성' onclick=\"location.href='./board_form.php?gr_id=$gr_id';\">";
+									            echo "<input type=button class='btn btn1' value='서브 메뉴 생성' onclick=\"location.href='./board_form.php?gr_id=$gr_id';\">";
 									        ?>
 										</div>
 									</div>

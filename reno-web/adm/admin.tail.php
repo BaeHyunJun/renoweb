@@ -4,7 +4,7 @@ if (!defined("_GNUBOARD_")) exit;
 
 		<div class="row-fluid">
 			<div id="footer" class="span12">
-				2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
+				COPYRIGHT 2013 BY <a href="http://fdamo.com/the-story/#Background">INNONEXT</a> CORPORATION. ALL RIGHTS RESERVED.
 			</div>
 		</div>
 	</div>
@@ -14,6 +14,7 @@ if (!defined("_GNUBOARD_")) exit;
 
 <script type='text/javascript' src="<?=$g4['admin_path']?>/js/jquery.min.js"></script>
 <script type='text/javascript' src="<?=$g4['admin_path']?>/js/jquery-migrate-1.1.0.min.js"></script>
+<script type='text/javascript' src="<?=$g4['admin_path']?>/js/jquery-ui.custom.js"></script>
 <script type='text/javascript' src="<?=$g4['admin_path']?>/js/bootstrap.min.js"></script>
 <script type='text/javascript' src="<?=$g4['admin_path']?>/js/jquery.uniform.js"></script>
 <script type='text/javascript' src="<?=$g4['admin_path']?>/js/select2.min.js"></script>

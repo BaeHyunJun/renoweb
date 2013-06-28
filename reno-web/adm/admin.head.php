@@ -194,10 +194,17 @@ function layer_view(link_id, menu_id, opt, x, y)
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/select2.css" />		
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/unicorn.main.css" />
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/unicorn.blue.css" class="skin-color" />
+<link rel="stylesheet" href="<?=$g4['admin_path']?>/css/jquery-ui.css" />
+<link rel="stylesheet" href="<?=$g4['admin_path']?>/css/reno_admin.css" />
+
+<style>
+	.sort { list-style-type: none; margin: 0; padding: 0; width: 100%;}
+	.sort li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+	html>body .sort li { height: 1.5em; line-height: 1.2em; }
+	.ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+</style>
 
 <body leftmargin=0 topmargin=0>
-<a name='gnuboard4_admin_head'></a>
-		
 		<div id="header">
 			<h1><a href="<?=$g4['admin_path']?>/">Unicorn Admin</a></h1>		
 		</div>

@@ -100,15 +100,13 @@ var list_update_php = "./boardgroup_list_update.php";
 <colgroup width=250>
 <colgroup width=''>
 <colgroup width=100>
-<colgroup width=50>
 <colgroup width=80>
 									<thead>
 										<tr>
 											<th><?=subject_sort_link("gr_id")?>테이블 명</a></th>
 											<th><?=subject_sort_link("gr_subject")?>메뉴 명</a></th>
 											<th><?=subject_sort_link("gr_admin")?>메뉴 관리자</a></th>
-											<th>세부 메뉴 수</th>
-											<th>메인</th>
+											<th>서브 메뉴 수</th>
 											<th>수정 / 삭제</th>
 										</tr>
 									</thead>
@@ -152,11 +150,6 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
         echo "<td>$row[gr_admin]</td>";
 
     echo "<td><a href='./board_list.php?sfl=a.gr_id&stx=$row[gr_id]'>$row2[cnt]</a></td>";
-    echo "<td><input type='checkbox' disabled ";
-    if($row[gr_1] == 'on'){
-		echo "checked";
-	}
-    echo "/></td>";
     echo "<td>$s_upd / $s_del</td>";
     echo "</tr>\n";
 }

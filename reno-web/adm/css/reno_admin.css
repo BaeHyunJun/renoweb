@@ -1,0 +1,21 @@
+#layer_pop {
+	display: none;
+	position: absolute;
+	top:0;
+	left:0;
+}
+#add_form {
+	position: relative;
+	width: 100%;
+	padding: 5px 20px 20px 20px;
+	background: gray;
+	opacity: .9;
+	border-radius: 10px;
+}
+#add_form form {
+	width: 100%;
+	background: white;
+	padding: 0 0 5px 0;
+}
+#top-radius {
+}

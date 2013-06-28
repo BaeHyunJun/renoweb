@@ -87,5 +87,12 @@ var g4_is_ie     = navigator.userAgent.toLowerCase().indexOf("msie") != -1;
 </script>
 <script type="text/javascript" src="<?=$g4['path']?>/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="<?=$g4['path']?>/js/common.js"></script>
+<style>
+#title h1 {
+	text-indent: -10000px;
+	background: url(<?=$g4['path']?>/data/logo/logo.png) no-repeat;
+	height: 50px;
+}
+</style>
+
 <body topmargin="0" leftmargin="0" <?=isset($g4['body_script']) ? $g4['body_script'] : "";?>>
-<a name="g4_head"></a>
