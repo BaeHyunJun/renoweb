@@ -77,6 +77,7 @@ include_once ("./admin.head.php");
 </div>
 
 <div class="container-fluid">
+
 <form name=fboardform method=post onsubmit="return fboardform_submit(this)" enctype="multipart/form-data">
 <input type=hidden name="w"     value="<?=$w?>">
 <input type=hidden name="sfl"   value="<?=$sfl?>">
@@ -147,7 +148,6 @@ include_once ("./admin.head.php");
 <input type=hidden name=bo_8 value=''>
 <input type=hidden name=bo_9 value=''>
 <input type=hidden name=bo_10 value=''>
-
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="widget-box">
@@ -271,13 +271,6 @@ include_once ("./admin.head.php");
 			</div>						
 		</div>
 	</div>
-
-	<div class="row-fluid">
-		<div id="footer" class="span12">
-			2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
-		</div>
-	</div>
-</div>
 </form>
 
 <script type="text/javascript">

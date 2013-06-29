@@ -45,15 +45,19 @@ header("Pragma: no-cache"); // HTTP/1.0
 
 // 블로그 메뉴 가져오기
 $sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' and gr_3 = 'blog' order by gr_2 asc";
-$blogmenu = sql_query($sql);
+$blog_M = sql_query($sql);
 
 // 홈페이지 메뉴 가져오기
 $sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' and gr_3 = 'homepage' order by gr_2 asc";
-$homepagemenu = sql_query($sql);
+$homepage_M = sql_query($sql);
 
-// 유저 메뉴 가져오기
-$sql = "select * from $g4[group_table] where gr_1 = '유저 메뉴' order by gr_2 asc";
-$user = sql_query($sql);
+// 로그인시 유저 메뉴 가져오기
+$sql = "select * from $g4[group_table] where gr_1 = '유저 메뉴' and gr_3 = 'login' order by gr_2 asc";
+$login_M = sql_query($sql);
+
+// 로그아웃시 유저 메뉴 가져오기
+$sql = "select * from $g4[group_table] where gr_1 = '유저 메뉴' and gr_3 = 'logout' order by gr_2 asc";
+$logout_M = sql_query($sql);
 
 function isLoginMenu($data) {
 	if($data) {
