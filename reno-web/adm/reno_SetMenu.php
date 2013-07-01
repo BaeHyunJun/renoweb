@@ -23,20 +23,12 @@ $colspan = 8;
 				<div class="alert">
 					<storng>해당 메뉴들은 드래그&드롭으로 순서 변경이 가능합니다.</storng>
 				</div>
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon">
-							<i class="icon-th"></i>
-						</span>
-						<h5><?=$g4[title]?></h5>
-					</div>
-					<div class="widget-content">
 <div class="widget-box">
 	<div class="widget-title">
 		<span class="icon">
 			<i class="icon-th"></i>
 		</span>
-		<h5>메인 메뉴</h5>
+		<h5>메인 <?=$g4[title]?></h5>
 		<div class="buttons">
 			<a title="Icon Title" class="btn btn-mini" href="./reno_SetMenu_form.php?m=main"><i class="icon-plus-sign"></i> 추가하기</a>
 		</div>
@@ -44,42 +36,62 @@ $colspan = 8;
 	<div class="widget-content" >
 		<div class="row-fluid">
 			<div class="span6">
-				<strong>블로그 메뉴</strong>
-				<ul id="blog-sort" class="sort">
-				<?
-				for ($i=0; $row=sql_fetch_array($blog_M); $i++)
-				{
-				    echo "<li id='blog$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-				    echo get_text($row[gr_subject]);
-				    echo "<a href=\"javascript:remove_menu('blog$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-						  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-						  </li>";
-				}
-				?>
-				</ul>
-				<?
-				if ($i == 0)
-				    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
-				?>
+				<div class="widget-box" style="margin: 0;">
+					<div class="widget-title">
+						<h5>블로그 메뉴</h5>
+					</div>
+					<div class="widget-content" >
+						<?
+						if ($i == 0)
+						    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
+						else {
+						?>
+							<ul id="blog-sort" class="sort">
+							<?
+							for ($i=0; $row=sql_fetch_array($blog_M); $i++)
+							{
+							    echo "<li id='blog$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+							    echo get_text($row[gr_subject]);
+							    echo "<a href=\"javascript:remove_menu('blog$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+									  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+									  </li>";
+							}
+							?>
+							</ul>
+						<?
+						}
+						?>
+					</div>
+				</div>
 			</div>
 			<div class="span6">
-				<strong>홈페이지 메뉴</strong>
-				<ul id="main-sort" class="sort">
-				<?
-				for ($i=0; $row=sql_fetch_array($homepage_M); $i++)
-				{
-				    echo "<li id='home$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-				    echo get_text($row[gr_subject]);
-				    echo "<a href=\"javascript:remove_menu('home$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-						  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-						  </li>";
-				}
-				?>
-				</ul>
-				<?
-				if ($i == 0)
-				    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
-				?>
+				<div class="widget-box" style="margin: 0;">
+					<div class="widget-title">
+						<h5>홈페이지 메뉴</h5>
+					</div>
+					<div class="widget-content" >
+						<?
+						if ($i == 0)
+						    echo "<h3>설정된 메뉴가 없습니다.</h3>";
+						else { 
+						?>
+							<ul id="main-sort" class="sort">
+							<?
+							for ($i=0; $row=sql_fetch_array($homepage_M); $i++)
+							{
+							    echo "<li id='home$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+							    echo get_text($row[gr_subject]);
+							    echo "<a href=\"javascript:remove_menu('home$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+									  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+									  </li>";
+							}
+							?>
+							</ul>
+						<?
+						}
+						?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -89,7 +101,7 @@ $colspan = 8;
 		<span class="icon">
 			<i class="icon-th"></i>
 		</span>
-		<h5>유저 메뉴</h5>
+		<h5>유저 <?=$g4[title]?></h5>
 		<div class="buttons">
 			<a title="Icon Title" class="btn btn-mini" href="./reno_SetMenu_form.php?m=user"><i class="icon-plus-sign"></i> 추가하기</a>
 		</div>
@@ -97,42 +109,62 @@ $colspan = 8;
 	<div class="widget-content">
 		<div class="row-fluid">
 			<div class="span6">
-				<strong>로그인시 메뉴</strong>
-<ul id="login-sort" class="sort">
-<?
-for ($i=0; $row=sql_fetch_array($login_M); $i++)
-{
-    echo "<li id='login$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-    echo get_text($row[gr_subject]);
-    echo "<a href=\"javascript:remove_menu('login$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-		  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-		  </li>";
-}
-?>
-</ul>
+				<div class="widget-box" style="margin: 0;">
+					<div class="widget-title">
+						<h5>로그인시 메뉴</h5>
+					</div>
+					<div class="widget-content" >
 <?
 if ($i == 0)
-    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
+    echo "<h3>설정된 메뉴가 없습니다.</h3>";
+else {
 ?>
+	<ul id="login-sort" class="sort">
+	<?
+	for ($i=0; $row=sql_fetch_array($login_M); $i++)
+	{
+	    echo "<li id='login$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+	    echo get_text($row[gr_subject]);
+	    echo "<a href=\"javascript:remove_menu('login$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+			  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+			  </li>";
+	}
+	?>
+	</ul>
+<?
+} 
+?>
+					</div>
+				</div>
 			</div>
 			<div class="span6">
-				<strong>로그아웃시 메뉴</strong>
-<ul id="logout-sort" class="sort">
-<?
-for ($i=0; $row=sql_fetch_array($logout_M); $i++)
-{
-    echo "<li id='logout$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-    echo get_text($row[gr_subject]);
-    echo "<a href=\"javascript:remove_menu('logout$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-		  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-		  </li>";
-}
-?>
-</ul>
+				<div class="widget-box" style="margin: 0;">
+					<div class="widget-title">
+						<h5>로그아웃시 메뉴</h5>
+					</div>
+					<div class="widget-content" >
 <?
 if ($i == 0)
-    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
+    echo "<h3>설정된 메뉴가 없습니다.</h3>";
+else { 
 ?>
+	<ul id="logout-sort" class="sort">
+	<?
+	for ($i=0; $row=sql_fetch_array($logout_M); $i++)
+	{
+	    echo "<li id='logout$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+	    echo get_text($row[gr_subject]);
+	    echo "<a href=\"javascript:remove_menu('logout$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+			  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+			  </li>";
+	}
+	?>
+	</ul>
+<?
+} 
+?>
+					</div>
+				</div>
 			</div>
 		</div>		
 	</div>
@@ -142,34 +174,34 @@ if ($i == 0)
 		<span class="icon">
 			<i class="icon-th"></i>
 		</span>
-		<h5>하단 메뉴</h5>
+		<h5>하단 <?=$g4[title]?></h5>
 		<div class="buttons">
 			<a title="Icon Title" class="btn btn-mini" href="./reno_SetMenu_form.php?m=foot"><i class="icon-plus-sign"></i> 추가하기</a>
 		</div>
 	</div>
 	<div class="widget-content">
-	
-<ul id="foot-sort" class="sort">
-<?
-for ($i=0; $row=sql_fetch_array($footer_menu); $i++)
-{
-    echo "<li id='foot$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-    echo get_text($row[gr_subject]);
-    echo "<a href=\"javascript:remove_menu('foot$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-		  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-		  </li>";
-}
-?>
-</ul>
 <?
 if ($i == 0)
-    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
+    echo "<h3>설정된 메뉴가 없습니다.</h3>";
+else {
 ?>
-		
+	<ul id="foot-sort" class="sort">
+	<?
+	for ($i=0; $row=sql_fetch_array($footer_menu); $i++)
+	{
+	    echo "<li id='foot$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+	    echo get_text($row[gr_subject]);
+	    echo "<a href=\"javascript:remove_menu('foot$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+			  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+			  </li>";
+	}
+	?>
+	</ul>
+<?
+}
+?>		
 	</div>
-</div>			
-					</div>
-				</div>						
+</div>								
 			</div>
 		</div>
 
@@ -186,6 +218,7 @@ if ($i == 0)
 <input type='hidden' name='gr_3'>
 <input type='hidden' name='current'>
 </form>
+
 <script>
 function add_menu_form() {
 	$.post("<?=$g4['admin_path']?>/reno_SetMenu_form.php", function(result){
