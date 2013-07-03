@@ -6,13 +6,13 @@ if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 ?>		<footer id="main_footer">
 			<nav id="main_fnb">
 				<ul>
-					<li><a href="#">개인정보 취급방침</a></li>
-					<li>|</li>
-					<li><a href="#">온라인 이용약관</a></li>
-					<li>|</li>
-					<li><a href="#">대규모 소매업고시</a></li>
-					<li>|</li>
-					<li><a href="#">마일리지 이용가이드</a></li>
+<?
+while($data = mysql_fetch_array($footer_M)){
+?>
+					<li><a href="#"><?=$data[gr_subject]?></a></li>
+<?
+}
+?>
 				</ul>
 			</nav>
 			<figure>

@@ -52,6 +52,18 @@ include_once("./admin.head.php");
 								<input type=hidden name=sod   value='<?=$sod?>'>
 								<input type=hidden name=page  value='<?=$page?>'>
 								<input type=hidden name=token value='<?=$token?>'>
+<? for ($i=4; $i<=10; $i++) { ?>
+	<input type='hidden' name='gr_<?=$i?>_subj' value='<?=get_text($group["cf_{$i}_subj"])?>'>
+	<input type='hidden' name='gr_<?=$i?>' value='<?=$group["cf_$i"]?>'>
+<? } ?>
+								<input type=hidden name=gr_1_subj value='<?=get_text($group[gr_1_subj])?>'>
+								<input type=hidden name=gr_2_subj value='<?=get_text($group[gr_2_subj])?>'>
+								<input type=hidden name=gr_3_subj value='<?=get_text($group[gr_3_subj])?>'>
+								
+								<input type=hidden name=gr_1 value='<?=$group[gr_1]?>'>
+								<input type=hidden name=gr_2 value='<?=$group[gr_2]?>'>
+								<input type=hidden name=gr_3 value='<?=$group[gr_3]?>'>
+								
 									<div class="control-group">
 										<label class="control-label">테이블 명</label>
 										<div class="controls">

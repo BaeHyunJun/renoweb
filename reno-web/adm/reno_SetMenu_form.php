@@ -25,6 +25,7 @@ if($m == 'main') {
 } else if($m == 'foot') {
 	$gr_1 = '하단 메뉴';
 	$gr_2 = '999';
+	$gr_3_2 = 'footer';
 } else {
     alert("제대로 된 값이 넘어오지 않았습니다.");
 }
@@ -83,7 +84,8 @@ include_once("./admin.head.php");
 
 <div id="breadcrumb">
 	<a href="<?=$g4['admin_path']?>/" title="Go to Admin" class="tip-top"><i class="icon-home"></i> Admin</a>
-	<a href="<?=$g4['admin_path']?>/" class="current"><?=$g4[title]?></a>
+	<a href="<?=$g4['admin_path']?>/reno_SetMenu.php" class="current">메뉴 설정</a>
+	<a href="#" class="current"><?=$g4[title]?></a>
 </div>
 			<div class="container-fluid">
 			
@@ -100,64 +102,91 @@ include_once("./admin.head.php");
 				</span>
 				<h5><?=$g4[title]?></h5>
 				<div class="buttons">
-					<a title="Icon Title" class="btn btn-mini" href="./reno_SetMenu_form.php?m=user"><i class="icon-ok"></i> 확인</a>
+					<button class="cfBtn btn btn-mini"><i class="icon-ok"></i> 확인</button>
 				</div>
 			</div>
 			<div class="widget-content">
-<?
-if($m != 'foot'){ 
-?>
 				<div class="row-fluid">
+	<?
+	if(($m != 'main' || $config[cf_8] == 1) && $m != 'foot') {
+	?>
 					<div class="span5">
-						<div class="widget-box">
+						<div class="widget-box" style="margin: 0;">
 							<div class="widget-title">
 								<span class="icon">
 									<i class="icon-align-justify"></i>									
 								</span>
 								<h5><?=$gr_3_1?> Menu</h5>
 							</div>
-							<div id="blog_M" class="widget-content">
+							<div id="menu1" class="widget-content">
 								<ul id="sortable2">
+									<?
+									for ($i=0; $row=sql_fetch_array(($m == 'main' ? $blog_M : $login_M)); $i++)
+									{
+										echo "<li class='ui-state-default' style='padding:8px' data-id='$row[gr_id]'>";
+										echo get_text($row[gr_subject]);
+										echo "<i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+												<div class='pull-right' style='margin-top:-4px'>
+														<button class='btn upBtn' value='up' >Up</button>
+														<button class='btn downBtn' value='down' >Down</button>
+												</div>
+											</li>";
+									}
+									?>
 								</ul>
 							</div>
 						</div>
+						<div style="margin-top: 15px; text-align:center">
+							<button class="btn">등록</button>
+							<button class="btn">제거</button>
+						</div>
 					</div>
 					<div class="span2">
-						<div style="border: 1px solid red"></div>
+							<!-- 						
+							<div style="margin: 0 auto; text-align: center; border: 1px solid red">
+	 							<button><<이동</button>
+	 						</div> 
+	 						-->
 					</div>
 					<div class="span5">
-						<div class="widget-box">
+	<?
+	} else {
+	?>
+					<div class="span12">
+	<?
+	}
+	?>
+						<div class="widget-box" style="margin: 0;">
 							<div class="widget-title">
 								<span class="icon">
 									<i class="icon-align-justify"></i>									
 								</span>
 								<h5><?=$gr_3_2?> Menu</h5>
 							</div>
-							<div id="homepage_M" class="widget-content">
+							<div id="menu2" class="widget-content">
 								<ul id="sortable3">
+									<?
+									for ($i=0; $row=sql_fetch_array(($m != 'foot' ? ($m == 'main' ? $homepage_M : $logout_M) : $footer_M)); $i++)
+									{
+										echo "<li class='ui-state-default' style='padding:8px' data-id='$row[gr_id]'>";
+										echo get_text($row[gr_subject]);
+										echo "<i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+												<div class='pull-right' style='margin-top:-4px'>
+														<button class='btn upBtn' value='up' >Up</button>
+														<button class='btn downBtn' value='down' >Down</button>
+												</div>
+											</li>";
+									}
+									?>
 								</ul>
 							</div>
 						</div>
+						<div style="margin-top: 15px; text-align:center">
+							<button class="btn">등록</button>
+							<button class="btn">제거</button>
+						</div>
 					</div>
 				</div>	
-<?
-} else {
-?>
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon">
-							<i class="icon-align-justify"></i>									
-						</span>
-						<h5>footer Menu</h5>
-					</div>
-					<div id="homepage_M" class="widget-content">
-						<ul id="sortable2">
-						</ul>
-					</div>
-				</div>
-<?
-}
-?>
 				<div class="widget-box">
 					<div class="widget-title">
 						<span class="icon">
@@ -165,16 +194,19 @@ if($m != 'foot'){
 						</span>
 						<h5>Menu</h5>
 					</div>
-					<div id="homepage_M" class="widget-content">		
+					<div id="basic_M" class="widget-content">		
 						<ul id="sortable1">
 						<?
 						for ($i=0; $row=sql_fetch_array($result); $i++) {
 						?>
-							  <li class="ui-state-default">
+							  <li class="ui-state-default" style='padding: 8px' data-id='<?=$row[gr_id]?>'>
 							  	<i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
 							  	<?=get_text($row[gr_subject])?>
+								<div class="pull-right" style='margin-top:-4px'>
+										<button class='btn upBtn' value='up' >Up</button>
+										<button class='btn downBtn' value='down' >Down</button>
+								</div>
 							  </li>
-							  
 						<? 
 						}
 						?>
@@ -185,18 +217,33 @@ if($m != 'foot'){
 		</div>						
 	</div>
 </div>
+<form name="fpost" method=post class="fpost">
+<input type='hidden' name='m'	  value='<?=$m?>'>
+<input type='hidden' name='m1'	  value='<?=$gr_3_1?>'>
+<input type='hidden' name='m2'	  value='<?=$gr_3_2?>'>
+<input type='hidden' name='sst'   value='<?=$sst?>'>
+<input type='hidden' name='sod'   value='<?=$sod?>'>
+<input type='hidden' name='sfl'   value='<?=$sfl?>'>
+<input type='hidden' name='stx'   value='<?=$stx?>'>
+<input type='hidden' name='page'  value='<?=$page?>'>
+<input type='hidden' name='token' value='<?=$token?>'>
+</form>
 <script>
   $(function() {
-    $( "ul" ).on('click', 'li', function (e) {
-        if (e.ctrlKey || e.metaKey) {
-            $(this).toggleClass("selected");
+    $( "ul#sortable1, ul#sortable2, ul#sortable3" ).on('click', 'li', function (e) {
+        if($(this).hasClass("selected")){
+        	$(this).removeClass("selected");
         } else {
-            $(this).addClass("selected").siblings().removeClass('selected');
+	        if (e.ctrlKey || e.metaKey) {
+	            $(this).toggleClass("selected");
+	        } else {
+	            $(this).addClass("selected").siblings().removeClass('selected');
+	        }
         }
     }).sortable({
+    	items: ".ui-state-default", 
+    	distance: 10,
         connectWith: "ul",
-        delay: 150, //Needed to prevent accidental drag when trying to select
-        revert: 0,
         helper: function (e, item) {
             var helper = $('<li/>');
             if (!item.hasClass('selected')) {
@@ -208,20 +255,80 @@ if($m != 'foot'){
         },
 		start: function (event, ui) {
 			if( ui.helper !== undefined ) {
-				ui.helper.css('position','absolute').css('margin-top', $(window).scrollTop() );
+				ui.helper.css('position','absolute').css('margin-top', $(window).scrollTop());
 			}
 		},
-        stop: function (e, info) {
-            info.item.after(info.item.data('multidrag')).remove();
-        },
 		beforeStop: function (event, ui) {
-			if( ui.offset !== undefined )
+			if(ui.offset !== undefined)
 				ui.helper.css('margin-top', 0);
+
+			ui.item.removeClass('selected');
 		},
 		placeholder: "ui-state-highlight"
     });
-    
   });
+  function moveUp(item) {
+	    var prev = item.prev();
+	    if (prev.length == 0)
+	        return;
+	    prev.css('z-index', 999).css('position','relative').animate({ top: item.height() }, 250);
+	    item.css('z-index', 1000).css('position', 'relative').animate({ top: '-' + prev.height() }, 300, function () {
+	        prev.css('z-index', '').css('top', '').css('position', '');
+	        item.css('z-index', '').css('top', '').css('position', '');
+	        item.insertBefore(prev);
+	    });
+	}
+	function moveDown(item) {
+	    var next = item.next();
+	    if (next.length == 0)
+	        return;
+	    next.css('z-index', 999).css('position', 'relative').animate({ top: '-' + item.height() }, 250);
+	    item.css('z-index', 1000).css('position', 'relative').animate({ top: next.height() }, 300, function () {
+	        next.css('z-index', '').css('top', '').css('position', '');
+	        item.css('z-index', '').css('top', '').css('position', '');
+	        item.insertAfter(next);
+	    });
+	}
+	$('.upBtn, .downBtn').on('click', function() {
+	    var btn = $(this);
+	    var val = btn.val();
+	    if (val == 'up')
+	        moveUp(btn.parents('.ui-state-default'));
+	    else
+	        moveDown(btn.parents('.ui-state-default'));
+	});
+
+	$('.cfBtn').on('click', function() {
+		var f 	   	= document.fpost,
+			str		= '',
+			first  	= $("#sortable2"),
+			second 	= $("#sortable3"),
+			name 	= 'list1[]',
+			current = null;
+		
+		if(confirm("선택하신 메뉴를 추가 하시겠습니까?")) {
+			
+			for(var i = 0, max = first.children().length; i < max ; i += 1) {
+				str = getListTag(name, first.children().eq(i).attr('data-id'));
+				$('.fpost').append(str);
+			}
+			
+			name = 'list2[]';
+			
+			for(var i = 0, max = second.children().length; i < max ; i += 1) {
+				str = getListTag(name, second.children().eq(i).attr('data-id'));
+				$('.fpost').append(str);
+			}
+			
+			f.action      = "<?=$g4['admin_path']?>/reno_SetMenu_form_update.php";
+			f.submit();
+		}
+	});
+
+	function getListTag(name, value) {
+		//alert('a');
+		return "<input type='hidden' name='"+name+"' value='"+value+"'>";
+	}
 </script>
 <?
 include_once ("./admin.tail.php");

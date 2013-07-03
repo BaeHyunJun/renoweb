@@ -243,6 +243,17 @@ function layer_view(link_id, menu_id, opt, x, y)
         <?
         foreach($amenu as $key=>$value)
         {
+			// 레이아웃 메뉴 패스
+			if($menu["menu{$key}"][0][3] == 'admin_design') {
+				continue;
+			}
+            
+			if($menu["menu{$key}"][0][3] == 'admin_blog') {
+				if($config[cf_8] != 1) {
+					continue;
+				}
+			}
+			
             $href1 = "<a href='#'>";
             $href2 = "</a>";            
 					
@@ -256,6 +267,7 @@ function layer_view(link_id, menu_id, opt, x, y)
             } else {
 				echo "<li class='submenu'>";
 			}
+			
             echo "
 					{$href1}
 						<i class='".$menu["menu{$key}"][0][4]."'></i> 

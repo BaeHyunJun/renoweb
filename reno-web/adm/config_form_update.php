@@ -143,7 +143,6 @@ if (is_uploaded_file($_FILES[cf_logo][tmp_name])) {
 	}
 }
 
-
 sql_query($sql);
 
 //sql_query(" OPTIMIZE TABLE `$g4[config_table]` ");

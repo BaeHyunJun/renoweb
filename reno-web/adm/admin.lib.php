@@ -9,6 +9,30 @@ if (!get_session("ss_admin")) {
 }
 */
 
+// 블로그 메뉴 사용 여부
+function get_Use_Blog_Menu($name) {
+    global $g4;
+    
+	$sql 	= " select cf_8 from $g4[config_table]";
+	$result = sql_query($sql);
+	$row	= sql_fetch_array($result);
+	
+	$str 	= "<label><input type=radio name='$name' value='1'";
+	
+	if($row[cf_8] == 1)
+		$str.= "checked = 'checked'";
+	
+	$str	.= ">사용 O</label>";
+	$str	.= "<label><input type=radio name='$name' value='0'";
+	
+	if($row[cf_8] == 0)
+		$str.= "checked = 'checked'";
+	
+	$str	.= ">사용 X</label>";
+	
+	return $str;
+}
+
 // 스킨경로를 얻는다
 function get_skin_dir($skin, $len='')
 {

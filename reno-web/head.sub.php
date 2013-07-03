@@ -44,20 +44,24 @@ header("Pragma: no-cache"); // HTTP/1.0
 */
 
 // 블로그 메뉴 가져오기
-$sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' and gr_3 = 'blog' order by gr_2 asc";
+$sql = "select * from $g4[group_table] where gr_1 = 'main' and gr_3 = 'blog' order by gr_2 asc";
 $blog_M = sql_query($sql);
 
 // 홈페이지 메뉴 가져오기
-$sql = "select * from $g4[group_table] where gr_1 = '메인 메뉴' and gr_3 = 'homepage' order by gr_2 asc";
+$sql = "select * from $g4[group_table] where gr_1 = 'main' and gr_3 = 'homepage' order by gr_2 asc";
 $homepage_M = sql_query($sql);
 
 // 로그인시 유저 메뉴 가져오기
-$sql = "select * from $g4[group_table] where gr_1 = '유저 메뉴' and gr_3 = 'login' order by gr_2 asc";
+$sql = "select * from $g4[group_table] where gr_1 = 'user' and gr_3 = 'login' order by gr_2 asc";
 $login_M = sql_query($sql);
 
 // 로그아웃시 유저 메뉴 가져오기
-$sql = "select * from $g4[group_table] where gr_1 = '유저 메뉴' and gr_3 = 'logout' order by gr_2 asc";
+$sql = "select * from $g4[group_table] where gr_1 = 'user' and gr_3 = 'logout' order by gr_2 asc";
 $logout_M = sql_query($sql);
+
+// 하단 메뉴 가져오기
+$sql = "select * from $g4[group_table] where gr_1 = 'foot' order by gr_2 asc";
+$footer_M = sql_query($sql);
 
 function isLoginMenu($data) {
 	if($data) {
@@ -66,12 +70,13 @@ function isLoginMenu($data) {
 	return false;
 }
 ?>
-<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> -->
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=<?=$g4['charset']?>">
 <title><?=$g4['title']?></title>
 <link rel="stylesheet" href="<?=$g4['path']?>/css/EricMeyer-reset.css" />
+<link rel='stylesheet' type='text/css' href='<?=$main_skin_path?>/css/<?=$config['cf_4']?>.css'>
 </head>
 <script type="text/javascript">
 // 자바스크립트에서 사용하는 전역변수 선언
@@ -95,7 +100,8 @@ var g4_is_ie     = navigator.userAgent.toLowerCase().indexOf("msie") != -1;
 #title h1 {
 	text-indent: -10000px;
 	background: url(<?=$g4['path']?>/data/logo/logo.png) no-repeat;
-	height: 50px;
+	width: <?=$config[cf_2]?>px;
+	height: <?=$config[cf_3]?>px;
 }
 </style>
 

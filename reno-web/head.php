@@ -13,10 +13,6 @@ include_once("$g4[path]/lib/popular.lib.php");
 // 사용자 화면 상단과 좌측을 담당하는 페이지입니다.
 // 상단, 좌측 화면을 꾸미려면 이 파일을 수정합니다.
 ?>
-
-<?
-include_once("$main_skin_path/skin.php");
-?>
 <div id="wrap">
 	<article id="content">
 		<header id="main_header">
@@ -26,19 +22,14 @@ include_once("$main_skin_path/skin.php");
 			<nav id="main_unb">
 				<ul>
 <?
-while($data = mysql_fetch_array($user)){
-	if($member['mb_id']){
-		if(!isLoginMenu($data[gr_3])){
-			continue;
-		}
+if($member['mb_id']){
+	while($data = mysql_fetch_array($login_M)){
 ?>
 					<li><a href="#"><?=$data[gr_subject]?></a></li>
-			
 <?
-	} else {
-		if(isLoginMenu($data[gr_3])){
-			continue;
-		}
+	}
+} else {
+	while($data = mysql_fetch_array($logout_M)){
 ?>
 					<li><a href="#"><?=$data[gr_subject]?></a></li>
 <?
@@ -50,7 +41,7 @@ while($data = mysql_fetch_array($user)){
 			<nav id="main_mnb">
 				<ul id="blog_menu">
 <?
-while($data = mysql_fetch_array($blogmenu)){
+while($data = mysql_fetch_array($blog_M)){
 ?>
 					<li><a href="#"><?=$data[gr_subject]?></a></li>
 <?
@@ -59,7 +50,7 @@ while($data = mysql_fetch_array($blogmenu)){
 				</ul>
 				<ul id="homepage_menu">
 <?
-while($data = mysql_fetch_array($homepagemenu)){
+while($data = mysql_fetch_array($homepage_M)){
 ?>
 					<li><a href="#"><?=$data[gr_subject]?></a></li>
 <?

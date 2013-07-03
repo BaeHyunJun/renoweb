@@ -35,60 +35,62 @@ $colspan = 8;
 	</div>
 	<div class="widget-content" >
 		<div class="row-fluid">
+<?
+if($config[cf_8] == 1) {
+?>
 			<div class="span6">
 				<div class="widget-box" style="margin: 0;">
 					<div class="widget-title">
 						<h5>블로그 메뉴</h5>
 					</div>
 					<div class="widget-content" >
+						<ul id="blog-sort" class="sort">
+						<?
+						for ($i=0; $row=sql_fetch_array($blog_M); $i++)
+						{
+						    echo "<li id='blog$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+						    echo get_text($row[gr_subject]);
+						    echo "<a href=\"javascript:remove_menu('blog$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+								  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+								  </li>";
+						}
+						?>
+						</ul>
 						<?
 						if ($i == 0)
 						    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
-						else {
-						?>
-							<ul id="blog-sort" class="sort">
-							<?
-							for ($i=0; $row=sql_fetch_array($blog_M); $i++)
-							{
-							    echo "<li id='blog$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-							    echo get_text($row[gr_subject]);
-							    echo "<a href=\"javascript:remove_menu('blog$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-									  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-									  </li>";
-							}
-							?>
-							</ul>
-						<?
-						}
 						?>
 					</div>
 				</div>
 			</div>
 			<div class="span6">
+<?
+} else {
+?>
+			<div class="span12">
+<?
+}
+?>
 				<div class="widget-box" style="margin: 0;">
 					<div class="widget-title">
 						<h5>홈페이지 메뉴</h5>
 					</div>
 					<div class="widget-content" >
+						<ul id="main-sort" class="sort">
+						<?
+						for ($i=0; $row=sql_fetch_array($homepage_M); $i++)
+						{
+						    echo "<li id='home$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+						    echo get_text($row[gr_subject]);
+						    echo "<a href=\"javascript:remove_menu('home$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+								  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+								  </li>";
+						}
+						?>
+						</ul>
 						<?
 						if ($i == 0)
-						    echo "<h3>설정된 메뉴가 없습니다.</h3>";
-						else { 
-						?>
-							<ul id="main-sort" class="sort">
-							<?
-							for ($i=0; $row=sql_fetch_array($homepage_M); $i++)
-							{
-							    echo "<li id='home$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-							    echo get_text($row[gr_subject]);
-							    echo "<a href=\"javascript:remove_menu('home$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-									  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-									  </li>";
-							}
-							?>
-							</ul>
-						<?
-						}
+						    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
 						?>
 					</div>
 				</div>
@@ -114,25 +116,21 @@ $colspan = 8;
 						<h5>로그인시 메뉴</h5>
 					</div>
 					<div class="widget-content" >
+<ul id="login-sort" class="sort">
+<?
+for ($i=0; $row=sql_fetch_array($login_M); $i++)
+{
+    echo "<li id='login$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+    echo get_text($row[gr_subject]);
+    echo "<a href=\"javascript:remove_menu('login$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+		  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+		  </li>";
+}
+?>
+</ul>
 <?
 if ($i == 0)
-    echo "<h3>설정된 메뉴가 없습니다.</h3>";
-else {
-?>
-	<ul id="login-sort" class="sort">
-	<?
-	for ($i=0; $row=sql_fetch_array($login_M); $i++)
-	{
-	    echo "<li id='login$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-	    echo get_text($row[gr_subject]);
-	    echo "<a href=\"javascript:remove_menu('login$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-			  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-			  </li>";
-	}
-	?>
-	</ul>
-<?
-} 
+    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
 ?>
 					</div>
 				</div>
@@ -143,25 +141,21 @@ else {
 						<h5>로그아웃시 메뉴</h5>
 					</div>
 					<div class="widget-content" >
+<ul id="logout-sort" class="sort">
+<?
+for ($i=0; $row=sql_fetch_array($logout_M); $i++)
+{
+    echo "<li id='logout$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+    echo get_text($row[gr_subject]);
+    echo "<a href=\"javascript:remove_menu('logout$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+		  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+		  </li>";
+}
+?>
+</ul>
 <?
 if ($i == 0)
-    echo "<h3>설정된 메뉴가 없습니다.</h3>";
-else { 
-?>
-	<ul id="logout-sort" class="sort">
-	<?
-	for ($i=0; $row=sql_fetch_array($logout_M); $i++)
-	{
-	    echo "<li id='logout$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-	    echo get_text($row[gr_subject]);
-	    echo "<a href=\"javascript:remove_menu('logout$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-			  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-			  </li>";
-	}
-	?>
-	</ul>
-<?
-} 
+    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
 ?>
 					</div>
 				</div>
@@ -180,26 +174,24 @@ else {
 		</div>
 	</div>
 	<div class="widget-content">
+	
+<ul id="foot-sort" class="sort">
+<?
+for ($i=0; $row=sql_fetch_array($footer_M); $i++)
+{
+    echo "<li id='foot$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
+    echo get_text($row[gr_subject]);
+    echo "<a href=\"javascript:remove_menu('foot$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
+		  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
+		  </li>";
+}
+?>
+</ul>
 <?
 if ($i == 0)
-    echo "<h3>설정된 메뉴가 없습니다.</h3>";
-else {
+    echo "<h3>설정된 메뉴가 없습니다.</h3>"; 
 ?>
-	<ul id="foot-sort" class="sort">
-	<?
-	for ($i=0; $row=sql_fetch_array($footer_menu); $i++)
-	{
-	    echo "<li id='foot$i' class='ui-state-default' data-id='$row[gr_id]' data-1='$row[gr_1]' data-2='$row[gr_2]' data-3='$row[gr_3]'>";
-	    echo get_text($row[gr_subject]);
-	    echo "<a href=\"javascript:remove_menu('foot$i');\" class='pull-right'><i class='icon-remove' style='margin-top: 4px'></i></a>
-			  <i class='icon-align-justify pull-left' style='margin-top: 4px;margin-right: 10px'></i>
-			  </li>";
-	}
-	?>
-	</ul>
-<?
-}
-?>		
+		
 	</div>
 </div>								
 			</div>
@@ -218,7 +210,6 @@ else {
 <input type='hidden' name='gr_3'>
 <input type='hidden' name='current'>
 </form>
-
 <script>
 function add_menu_form() {
 	$.post("<?=$g4['admin_path']?>/reno_SetMenu_form.php", function(result){

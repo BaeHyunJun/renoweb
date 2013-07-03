@@ -19,6 +19,10 @@ if (!trim($config[cf_privacy])) {
     $config[cf_privacy] = "해당 홈페이지에 맞는 개인정보취급방침을 입력합니다.";
 }
 
+$sql = "select count(*) as cnt from $g4[group_table] where gr_1 = 'main' and gr_3 = 'blog' order by gr_2 asc";
+$row = sql_fetch($sql);
+$count = $row[cnt];
+
 $g4['title'] = "기본환경설정";
 include_once ("./admin.head.php");
 ?>
@@ -123,8 +127,9 @@ include_once ("./admin.head.php");
 <input type='hidden' name='cf_5_subj' value='카피라이트'>														<!-- 여분 필드 -->
 <input type='hidden' name='cf_6_subj' value='주소'>															<!-- 여분 필드 -->
 <input type='hidden' name='cf_7_subj' value='기타'>															<!-- 여분 필드 -->
+<input type='hidden' name='cf_8_subj' value='블로그 일체화 사용'>												<!-- 여분 필드 -->
 
-<? for ($i=8; $i<=10; $i++) { ?>
+<? for ($i=9; $i<=10; $i++) { ?>
 	<input type='hidden' name='cf_<?=$i?>_subj' value='<?=get_text($config["cf_{$i}_subj"])?>'>
 	<input type='hidden' name='cf_<?=$i?>' value='<?=$config["cf_$i"]?>'>
 <? } ?>
@@ -150,6 +155,22 @@ include_once ("./admin.head.php");
 						</div>
 						<div class="row-fluid">
 							<div class="span6">
+								
+								<div class="control-group">
+									<label class="control-label">블로그 일체화 사용</label>
+									<div class="controls">
+										<?=get_Use_Blog_Menu("cf_8")?>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">로고 사이즈</label>
+									<div class="controls">
+										폭 <input type=text class='ed' name='cf_2' size='5' value='<?=$config[cf_2]?>'> 픽셀 <br /> 
+										높이 <input type=text class=ed name='cf_3' size='5' value='<?=$config[cf_3]?>'> 픽셀
+									</div>
+								</div>
+							</div>
+							<div class="span6">
 								<div class="control-group">
 									<label class="control-label">로고</label>
 									<div class="controls">
@@ -163,24 +184,14 @@ include_once ("./admin.head.php");
 								        ?>
 									</div>
 								</div>
-							</div>
-							<div class="span6">
-								<div class="control-group">
-									<label class="control-label">로고 사이즈</label>
-									<div class="controls">
-										폭 <input type=text class=ed name='cf_2' size='5' value='<?=$config[cf_2]?>'> 픽셀 <br /> 
-										높이 <input type=text class=ed name='cf_3' size='5' value='<?=$config[cf_3]?>'> 픽셀
-									</div>
-								</div>
-							</div>
-						</div>
 								<div class="control-group">
 									<label class="control-label">로고 용량</label>
 									<div class="controls">
         								<input type=text class=ed name='cf_1' size='5' value='<?=$config[cf_1]?>'> 바이트 이하
 									</div>
 								</div>
-								
+							</div>
+						</div>
 								
 						<div class="control-group">
 							<label class="control-label">카피라이트</label>
@@ -230,8 +241,24 @@ include_once ("./admin.head.php");
 	</div>
 
 <script type="text/javascript">
+function check_Blog() {
+	$num = <?=$count?>;
+	if($num > 0) {
+		if(document.getElementsByName('cf_8')[0].checked) {
+			return false;
+		}
+		return true;
+	} 
+	return false;
+}
+
 function fconfigform_submit(f)
 {
+	if(check_Blog()) {
+		alert('현재 블로그 메뉴가 존재 합니다. 메뉴를 제거 후 다시 설정해 주세요.');
+		return false;
+	}
+	
     f.action = "./config_form_update.php";
     return true;
 }
