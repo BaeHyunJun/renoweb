@@ -47,6 +47,11 @@ header("Pragma: no-cache"); // HTTP/1.0
 $sql = "select * from $g4[group_table] where gr_1 = 'main' and gr_3 = 'blog' order by gr_2 asc";
 $blog_M = sql_query($sql);
 
+// 블로그 메뉴 갯수 가져오기
+$sql = "select count(*) as cnt from $g4[group_table] where gr_1 = 'main'";
+$row = sql_fetch($sql);
+$cnt = $row[cnt];
+
 // 홈페이지 메뉴 가져오기
 $sql = "select * from $g4[group_table] where gr_1 = 'main' and gr_3 = 'homepage' order by gr_2 asc";
 $homepage_M = sql_query($sql);
@@ -97,7 +102,7 @@ var g4_is_ie     = navigator.userAgent.toLowerCase().indexOf("msie") != -1;
 <script type="text/javascript" src="<?=$g4['path']?>/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="<?=$g4['path']?>/js/common.js"></script>
 <style>
-#title h1 {
+#brand_logo {
 	text-indent: -10000px;
 	background: url(<?=$g4['path']?>/data/logo/logo.png) no-repeat;
 	width: <?=$config[cf_2]?>px;

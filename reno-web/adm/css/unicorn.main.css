@@ -47,7 +47,6 @@ a:hover {
 }
 */
 #search input[type=text] {
-	height: 24px;
 	font-size: 12px;
 	line-height: 18px;
 	border-radius: 4px 0 0 4px;

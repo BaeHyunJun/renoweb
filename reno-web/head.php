@@ -12,15 +12,19 @@ include_once("$g4[path]/lib/popular.lib.php");
 
 // 사용자 화면 상단과 좌측을 담당하는 페이지입니다.
 // 상단, 좌측 화면을 꾸미려면 이 파일을 수정합니다.
+
+//메뉴 사이즈 설정
+$cnt = 100 / $cnt;
 ?>
 <div id="wrap">
 	<article id="content">
-		<header id="main_header">
-			<hgroup id="title">
-				<h1><?=$g4['title']?></h1>
-			</hgroup>
-			<nav id="main_unb">
-				<ul>
+	
+	
+		<header>
+			<hgroup>		
+				<h1 id="brand_logo"><?=$g4['title']?></h1>
+				<nav id="user_nav">
+					<ul>
 <?
 if($member['mb_id']){
 	while($data = mysql_fetch_array($login_M)){
@@ -36,23 +40,32 @@ if($member['mb_id']){
 	}
 }
 ?>
-				</ul>
-			</nav>
-			<nav id="main_mnb">
+					</ul>
+				</nav>
+			</hgroup>
+			<nav id="main_nav">
+<?
+if($config[cf_8] == 1) {
+?>
 				<ul id="blog_menu">
 <?
 while($data = mysql_fetch_array($blog_M)){
 ?>
-					<li><a href="#"><?=$data[gr_subject]?></a></li>
+					<li><a href="#" style="padding: 0 <?=$cnt/5?>%"><?=$data[gr_subject]?></a></li>
 <?
 }
 ?>
 				</ul>
+				<div id="main_menu_space">
+				</div>
+<?
+}
+?>
 				<ul id="homepage_menu">
 <?
 while($data = mysql_fetch_array($homepage_M)){
 ?>
-					<li><a href="#"><?=$data[gr_subject]?></a></li>
+					<li><a href="#" style="padding: 0 <?=$cnt/5?>%"><?=$data[gr_subject]?></a></li>
 <?
 }
 ?>

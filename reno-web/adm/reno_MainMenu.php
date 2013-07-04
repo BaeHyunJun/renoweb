@@ -73,7 +73,7 @@ var list_update_php = "./boardgroup_list_update.php";
     <div class="span6" align=left>메뉴 수 : <?=number_format($total_count)?>개</div>
     <div class="span6" align=right>
 		<select name=sfl>
-			<option value="gr_id">테이블 명</option>
+			<option value="gr_id">고유 ID</option>
 			<option value="gr_subject">제목 명</option>
 		</select>
         
@@ -103,7 +103,7 @@ var list_update_php = "./boardgroup_list_update.php";
 <colgroup width=80>
 									<thead>
 										<tr>
-											<th><?=subject_sort_link("gr_id")?>테이블 명</a></th>
+											<th><?=subject_sort_link("gr_id")?>고유 ID</a></th>
 											<th><?=subject_sort_link("gr_subject")?>메뉴 명</a></th>
 											<th><?=subject_sort_link("gr_admin")?>메뉴 관리자</a></th>
 											<th>서브 메뉴 수</th>
