@@ -190,7 +190,7 @@ include_once ("./admin.head.php");
 								<div class="controls">
 									<select name=bo_skin required itemname="스킨 디렉토리">
 							        <?
-							        $arr = get_skin_dir("board");
+							        $arr = get_skin_dir("page/board");
 							        for ($i=0; $i<count($arr); $i++) {
 							            echo "<option value='$arr[$i]'>$arr[$i]</option>\n";
 							        }

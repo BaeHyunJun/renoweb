@@ -136,10 +136,12 @@ include_once("./admin.head.php");
 								</ul>
 							</div>
 						</div>
+						<!-- 
 						<div style="margin-top: 15px; text-align:center">
 							<button class="btn">등록</button>
 							<button class="btn">제거</button>
 						</div>
+						 -->
 					</div>
 					<div class="span2">
 							<!-- 						
@@ -181,10 +183,12 @@ include_once("./admin.head.php");
 								</ul>
 							</div>
 						</div>
+						<!-- 
 						<div style="margin-top: 15px; text-align:center">
 							<button class="btn">등록</button>
 							<button class="btn">제거</button>
 						</div>
+						 -->
 					</div>
 				</div>	
 				<div class="widget-box">

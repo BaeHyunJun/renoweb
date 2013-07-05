@@ -52,13 +52,14 @@ include_once("./admin.head.php");
 								<input type=hidden name=sod   value='<?=$sod?>'>
 								<input type=hidden name=page  value='<?=$page?>'>
 								<input type=hidden name=token value='<?=$token?>'>
-<? for ($i=4; $i<=10; $i++) { ?>
+<? for ($i=5; $i<=10; $i++) { ?>
 	<input type='hidden' name='gr_<?=$i?>_subj' value='<?=get_text($group["cf_{$i}_subj"])?>'>
 	<input type='hidden' name='gr_<?=$i?>' value='<?=$group["cf_$i"]?>'>
 <? } ?>
 								<input type=hidden name=gr_1_subj value='<?=get_text($group[gr_1_subj])?>'>
 								<input type=hidden name=gr_2_subj value='<?=get_text($group[gr_2_subj])?>'>
 								<input type=hidden name=gr_3_subj value='<?=get_text($group[gr_3_subj])?>'>
+								<input type=hidden name=gr_4_subj value='기본 페이지 사용'>
 								
 								<input type=hidden name=gr_1 value='<?=$group[gr_1]?>'>
 								<input type=hidden name=gr_2 value='<?=$group[gr_2]?>'>
@@ -82,6 +83,12 @@ include_once("./admin.head.php");
 										</div>
 									</div>
 									<div class="control-group">
+										<label class="control-label">기본 페이지 사용</label>
+										<div class="controls">
+											<label><input type="checkbox" class="gr_4" name="gr_4" <?if($gr[gr_4] != '') echo "checked"?>/> 사용</label>
+										</div>
+									</div>
+									<div class="control-group">
 										<label class="control-label">메뉴 관리자</label>
 										<div class="controls">
 								        <?
@@ -102,7 +109,6 @@ include_once("./admin.head.php");
 						</div>						
 					</div>
 				</div>
-
 <script type='text/javascript'>
 if (document.fboardgroup.w.value == '')
     document.fboardgroup.gr_id.focus();
@@ -111,6 +117,20 @@ else
 
 function fboardgroup_check(f)
 {
+	var str = $('.gr_4').val();
+
+	if( str == 'on' ) {
+		if ($('.gr_4').attr('checked')) {
+	    } else {
+			if(confirm("기본 페이지를 사용하지 않으실 경우 기존에 있던 페이지는 삭제 됩니다. 삭제하시겠습니까?")) {
+			    f.action = "./boardgroup_form_update.php";
+			    return true;
+			}
+			else {
+				return false;
+			}
+	    }
+	}
     f.action = "./boardgroup_form_update.php";
     return true;
 }

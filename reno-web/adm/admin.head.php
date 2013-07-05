@@ -195,7 +195,6 @@ function layer_view(link_id, menu_id, opt, x, y)
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/unicorn.main.css" />
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/unicorn.blue.css" class="skin-color" />
 <link rel="stylesheet" href="<?=$g4['admin_path']?>/css/jquery-ui.css" />
-<link rel="stylesheet" href="<?=$g4['admin_path']?>/css/reno_admin.css" />
 
 <style>
 	.sort { list-style-type: none; margin: 0; padding: 0; width: 100%;}

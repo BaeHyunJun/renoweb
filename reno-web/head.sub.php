@@ -81,7 +81,6 @@ function isLoginMenu($data) {
 <meta http-equiv="content-type" content="text/html; charset=<?=$g4['charset']?>">
 <title><?=$g4['title']?></title>
 <link rel="stylesheet" href="<?=$g4['path']?>/css/EricMeyer-reset.css" />
-<link rel='stylesheet' type='text/css' href='<?=$main_skin_path?>/css/<?=$config['cf_4']?>.css'>
 </head>
 <script type="text/javascript">
 // 자바스크립트에서 사용하는 전역변수 선언

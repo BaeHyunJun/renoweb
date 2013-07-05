@@ -192,6 +192,18 @@ include_once ("./admin.head.php");
 								</div>
 							</div>
 						</div>
+						<div class="control-group">
+							<label class="control-label">메인 스킨</label>
+							<div class="controls">
+									<select name='cf_4' required itemname="스킨 디렉토리">
+							        <?
+							        $arr = get_skin_dir("page/main");
+							        for ($i=0; $i<count($arr); $i++) {
+							            echo "<option value='$arr[$i]'>$arr[$i]</option>\n";
+							        }
+							        ?></select>
+							</div>
+						</div>
 								
 						<div class="control-group">
 							<label class="control-label">카피라이트</label>

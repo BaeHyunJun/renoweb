@@ -520,11 +520,29 @@ if ($is_admin != "super") {
 // 스킨경로
 $board_skin_path = '';
 if (isset($board['bo_skin']))
-	$board_skin_path = "{$g4['path']}/skin/board/{$board['bo_skin']}"; // 게시판 스킨 경로
+	$board_skin_path = "{$g4['path']}/skin/page/board/{$board['bo_skin']}"; // 게시판 스킨 경로
+
+$blog_skin_path = '';
+if (isset($board['bo_skin']))
+	$board_skin_path = "{$g4['path']}/skin/page/blog/{$board['bo_skin']}"; // 블로그 스킨 경로
+
+$single_skin_path = '';
+if (isset($board['bo_skin']))
+	$board_skin_path = "{$g4['path']}/skin/page/single/{$board['bo_skin']}"; // 단일 페이지 스킨 경로
+
+$gallery_skin_path = '';
+if (isset($board['bo_skin']))
+	$board_skin_path = "{$g4['path']}/skin/page/gallery/{$board['bo_skin']}"; // 갤러리 스킨 경로
+
+$video_skin_path = '';
+if (isset($board['bo_skin']))
+	$board_skin_path = "{$g4['path']}/skin/page/video/{$board['bo_skin']}"; // 동영상 스킨 경로
 
 $main_skin_path = '';
 if (isset($config['cf_4']))
-    $main_skin_path = "{$g4['path']}/skin/main/{$config['cf_4']}"; // 메인 스킨 경로
+    $main_skin_path = "{$g4['path']}/skin/page/main/{$config['cf_4']}"; // 메인 스킨 경로
+
+
 
 // 방문자수의 접속을 남김
 include_once("{$g4['bbs_path']}/visit_insert.inc.php");
